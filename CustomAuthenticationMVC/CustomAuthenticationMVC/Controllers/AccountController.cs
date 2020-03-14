@@ -170,11 +170,11 @@ namespace CustomAuthenticationMVC.Controllers
             var url = string.Format("/Account/ActivationAccount/{0}", activationCode);
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, url);
 
-            var fromEmail = new MailAddress("mehdi.rami2012@gmail.com", "Activation Account - AKKA");
+            var fromEmail = new MailAddress("damee1993@gmail.com", "Activation Account - Damilola Adegunwa");
             var toEmail = new MailAddress(email);
 
-            var fromEmailPassword = "******************";
-            string subject = "Activation Account !";
+            var fromEmailPassword = "Damilola#123";
+            string subject = "Activation Account!";
 
             string body = "<br/> Please click on the following link in order to activate your account" + "<br/><a href='" + link + "'> Activation Account ! </a>";
 
@@ -195,9 +195,14 @@ namespace CustomAuthenticationMVC.Controllers
                 IsBodyHtml = true
 
             })
+                try
+                {
+                    smtp.Send(message);
+                }
+                catch (Exception ex)
+                {
 
-                smtp.Send(message);
-
+                }
         }
     }
 }
